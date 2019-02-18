@@ -33,5 +33,39 @@ class QueryBuilder{
         $statment->execute($parameters);
     }
 
+    public function update($table, $parameters, $column, $condition) {
+      
+        $sql = sprintf("UPDATE %s SET %s WHERE %s = '%s'", $table, 
+      
+        implode(', ', array_map(function($param){
+      
+            return $param.' = :'.$param;
+      
+        }, array_keys($parameters))),
+        $column,
+        $condition
+      );
 
+      $statment= $this->pdo->prepare($sql);
+      $statment->execute($parameters);
+    
+    }
+    
+    public function findAll($table, $column, $parameter){
+        
+        $statment = $this->pdo->prepare("SELECT * FROM {$table} where {$column} = '{$parameter}'");
+        $statment->execute();
+
+        return $statment->fetchAll(\PDO::FETCH_OBJ);
+
+    }
+
+    public function findOne($table, $column, $parameter){
+     
+        $statment = $this->pdo->prepare("SELECT * FROM {$table} where {$column} = '{$parameter}' LIMIT 1");
+        $statment->execute();
+
+        return $statment->fetch(\PDO::FETCH_OBJ);
+    
+    }
 }

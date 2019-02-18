@@ -5,7 +5,7 @@ return [
     'database' => [
         'type' => 'mysql',
         'host' => 'localhost',
-        'name' => 'mytodo',
+        'name' => 'social_network',
         'username' => 'root',
         'password' => '',
         'options' => [
