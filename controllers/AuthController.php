@@ -107,6 +107,7 @@ class AuthController {
                 $_SESSION['isLoggedIn'] = true;
                 $_SESSION['username'] = $user[0]->username;
                 $_SESSION['email'] = $user[0]->email;
+                $_SESSION['userId'] = $user[0]->id;
                 
                 return redirect('/');
             }
@@ -121,6 +122,7 @@ class AuthController {
         unset($_SESSION['isLoggedIn']);
         unset($_SESSION['username']);
         unset($_SESSION['email']);
+        unset($_SESSION['userId']);
 
         return redirect('/login');        
     }

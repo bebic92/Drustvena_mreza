@@ -9,3 +9,12 @@ $router->post('login', 'AuthController@login');
 $router->get('logout', 'AuthController@logout');
 
 $router->post('newPost', 'PostsController@store');
+$router->post('comment', 'CommentsController@store');
+
+
+
+
+
+
+$router->post('getComments', 'PagesController@getComments');
+$router->get('ajaxShowComments', 'AjaxController@showComments');

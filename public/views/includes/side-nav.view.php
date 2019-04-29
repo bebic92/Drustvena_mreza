@@ -1,65 +1,29 @@
-<div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-          <div class="sidebar-sticky">
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">
-                  <span data-feather="home"></span>
-                  Naslovna <span class="sr-only">(current)</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="users"></span>
-                  Users
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="upload"></span>
-                  Upload
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="message-circle"></span>
-                  Comments
-                </a>
-              </li>
+<div class="main-container">
+    <div class="side-nav__container">
+        <div class="side-nav__user-details">
+            <div class="side-nav__user-profile-pic">
+                <img src="public/img/user_profile.jpg">
+            </div>
+            <div class="side-nav__user-info">
+                <span class="side-nav__user-details__full-name">Marin Bebić</span>
+                <span class="side-nav__user-details__username">@marin.bebic</span>
+            </div>                
+        </div>
+        <nav class="side-nav">
+            <ul class="side-nav__items">
+                <li class="side-nav__item">
+                    <span class="side-nav__item__title">Objave</span>
+                    <span class="side-nav__item__number"><?= $userPosts->num_of_posts ?></span>
+                </li>
+                <li class="side-nav__item">
+                    <span class="side-nav__item__title">Slijedim</span>
+                    <span class="side-nav__item__number">142</span>
+                </li>
+                <li class="side-nav__item">
+                    <span class="side-nav__item__title">Pratitelji</span>
+                    <span class="side-nav__item__number">113</span>                        
+                </li>
             </ul>
-
-            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Moj profil</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="user"></span>
-                  <?= $user->firstName ?> <?= $user->lastName ?>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Broj objava: <?= $user->numOfPosts ?>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Social engagement
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Year-end sale
-                </a>
-              </li>
-            </ul>
-          </div>
         </nav>
+  </div>
+  <main>

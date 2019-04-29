@@ -4,75 +4,47 @@
 
 <?php include ('public/views/includes/side-nav.view.php') ?>
 
-<?php include ('public/views/includes/body-nav.view.php') ?>
-<div class="row">
-    <div class="col-md-4 order-md-2 mb-4">
-      <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-muted">Your cart</span>
-        <span class="badge badge-secondary badge-pill">3</span>
-      </h4>
-      <ul class="list-group mb-3">
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Product name</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$12</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Second product</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$8</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Third item</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$5</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between bg-light">
-          <div class="text-success">
-            <h6 class="my-0">Promo code</h6>
-            <small>EXAMPLECODE</small>
-          </div>
-          <span class="text-success">-$5</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between">
-          <span>Total (USD)</span>
-          <strong>$20</strong>
-        </li>
-      </ul>
 
-      <form class="card p-2">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Promo code">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-secondary">Redeem</button>
-          </div>
-        </div>
-      </form>
-    </div>
-
-<div class="col-md-8 order-md-1">
-      <h4 class="mb-3">Billing address</h4>
-      <form class="needs-validation" method="POST" action="/newPost">
-        <div class="row">
-          <div class="col-md-8 mb-4">
-            <div class="form-group">
-                <textarea class="form-control" name="post" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-          </div>
-          <div class="col-md-4 mb-2">
-            <div class="form-group">
-            <button class="btn btn-primary largeBtn">Potvrdi</button>
-            </div>
-          </div>
-         </div>
-
-      </form>
+<div class="main-new-post">
+    <form class="new-post" method="POST" action="newPost">
+        <textarea class="new-post__textarea" id="new-post__textarea" rows="3" placeholder="Što ti je na umu ?" name="post"></textarea>
+        <button type="submit" class="new-post__btn">Objavi</button>
+    </form>
 </div>
 
+<?php if(isset($posts)) :?>
+  <?php $cnt = 0; ?> 
+  <?php foreach($posts as $post) : ?>
+  <?php $cnt++; ?> 
+
+<div class="main-post">
+    <div class="main-post__user__image">
+        <img src="public/img/profile.png">
+    </div>
+    <div class="main-post__details">
+        <div class="main-post__details__header">
+            <span class="main-post__details__header__username"><?= $user->username ?></span>
+            <span>-</span>
+            <span><?= $post->created_at?></span>
+        </div>
+        <div class="main-post__details__main">
+            <div class="main-post__details__main__content">
+                <span>
+                  <?= $post->body ?>
+                </span>
+            </div>
+        </div>
+        <div class="main-post__details__footer">
+            <span class="main-post__details__footer__comment__icon"><span onclick="displayComments(<?= $cnt ?>,<?= $post->id ?>)"><i class="far fa-comment"></i> <?= $post->num_of_comments ?></span></span>
+            <span class="main-post__details__footer__likes__icon"><i class="far fa-thumbs-up"></i></span>
+            <span class="main-post__details__footer__likes__number">121</span>
+        </div>
+
+        <span class="main-post__details__show-comments--<?= $cnt ?>">
+    
+        </span>
+    </div> 
+</div>
+<?php endforeach; ?>
+  <?php endif; ?>
 <?php include ('public/views/includes/footer.view.php') ?>

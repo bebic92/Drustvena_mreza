@@ -44,6 +44,7 @@ class PostsController {
         return redirect('/');
 
     }
+
     private function validateInputs($inputs){
 
         $validation = new Validation();

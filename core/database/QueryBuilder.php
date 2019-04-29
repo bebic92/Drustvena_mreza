@@ -11,10 +11,17 @@ class QueryBuilder{
         $this->pdo = $pdo;
 
     }
+    public function querry($sql){
 
-    public function selectAll($table) {
+        $statment = $this->pdo->prepare($sql);
+        $statment->execute();
+        return $statment->fetchAll(\PDO::FETCH_OBJ); 
 
-        $statment = $this->pdo->prepare('SELECT * FROM '.$table);
+    }
+
+    public function selectAll($table, $order = 'DESC') {
+
+        $statment = $this->pdo->prepare("SELECT * FROM {$table} ORDER BY created_at {$order}");
         $statment->execute();
         return $statment->fetchAll(\PDO::FETCH_OBJ); 
 

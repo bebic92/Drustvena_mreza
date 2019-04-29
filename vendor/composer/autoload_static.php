@@ -7,7 +7,9 @@ namespace Composer\Autoload;
 class ComposerStaticInitd15ffa962ea23c419d2f0347974a3a06
 {
     public static $classMap = array (
+        'App\\Controllers\\AjaxController' => __DIR__ . '/../..' . '/controllers/AjaxController.php',
         'App\\Controllers\\AuthController' => __DIR__ . '/../..' . '/controllers/AuthController.php',
+        'App\\Controllers\\CommentsController' => __DIR__ . '/../..' . '/controllers/CommentsController.php',
         'App\\Controllers\\PagesController' => __DIR__ . '/../..' . '/controllers/PagesController.php',
         'App\\Controllers\\PostsController' => __DIR__ . '/../..' . '/controllers/PostsController.php',
         'App\\Core\\App' => __DIR__ . '/../..' . '/core/App.php',
@@ -17,6 +19,7 @@ class ComposerStaticInitd15ffa962ea23c419d2f0347974a3a06
         'App\\Core\\Request' => __DIR__ . '/../..' . '/core/Request.php',
         'App\\Core\\Router' => __DIR__ . '/../..' . '/core/Router.php',
         'App\\Core\\Validation' => __DIR__ . '/../..' . '/core/Validation.php',
+        'App\\Models\\Comment' => __DIR__ . '/../..' . '/models/Comment.php',
         'App\\Models\\Model' => __DIR__ . '/../..' . '/models/Model.php',
         'App\\Models\\Post' => __DIR__ . '/../..' . '/models/Post.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/models/User.php',
